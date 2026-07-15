@@ -75,13 +75,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="border border-navy-300 text-navy-800 px-8 py-3.5 rounded-lg font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-300"
-          >
-            Download Resume
-          </a>
-          <a
-            href="#contact"
-            className="text-navy-600 px-8 py-3.5 rounded-lg font-semibold hover:text-blue-600 transition-all duration-300 flex items-center gap-2"
+            className="border border-navy-300 text-navy-800 px-8 py-3.5 rounded-lg font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-300 flex items-center gap-2"
           >
             <Download size={16} /> Contact Me
           </a>
