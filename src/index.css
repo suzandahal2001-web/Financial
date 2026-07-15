@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #ffffff;
+    color: #0f1a3d;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-24;
+  }
+  .glass-card {
+    @apply bg-white border border-navy-100 rounded-2xl shadow-sm;
+  }
+  .glass-card-hover {
+    @apply hover:shadow-xl hover:border-blue-300 transition-all duration-300;
+  }
+  .blue-text {
+    @apply text-blue-600;
+  }
+  .blue-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .nav-link {
+    @apply text-navy-700 hover:text-blue-600 transition-colors duration-300 text-sm font-medium;
+  }
+  .section-label {
+    @apply text-blue-600 text-xs font-semibold tracking-[0.25em] uppercase;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #eff6ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #93c5fd;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
