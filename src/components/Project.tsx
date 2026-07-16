@@ -5,7 +5,7 @@ import {
   Lightbulb, CheckCircle2, Wrench, AlertTriangle, ArrowRight,
 } from 'lucide-react';
 import {
-  projectDCF, projectDuPont, projectForecast, projectInfosys,
+  projectDCF, projectDuPont, projectForecast,
 } from '../data';
 import DCFPeerChart from './charts/DCFPeerChart';
 import WACCChart from './charts/WACCChart';
@@ -15,10 +15,7 @@ import EPSGrowthChart from './charts/EPSGrowthChart';
 import RegressionScatterChart from './charts/RegressionScatterChart';
 import PriceTrendChart from './charts/PriceTrendChart';
 import RegressionStatsChart from './charts/RegressionStatsChart';
-import InfosysRevenueChart from './charts/InfosysRevenueChart';
-import InfosysRadarChart from './charts/InfosysRadarChart';
-import InfosysValuationChart from './charts/InfosysValuationChart';
-import ShareholderChart from './charts/ShareholderChart';
+import InfosysEquityDetail from './InfosysEquityDetail';
 
 type Project = {
   id: string;
@@ -38,7 +35,7 @@ type Project = {
   outcome: string;
 };
 
-const projectList: Project[] = [projectDCF, projectDuPont, projectForecast, projectInfosys];
+const projectList: Project[] = [projectDCF, projectDuPont, projectForecast];
 
 const projectCharts: Record<string, React.ReactNode> = {
   'dcf-valuation': (
@@ -61,14 +58,22 @@ const projectCharts: Record<string, React.ReactNode> = {
       <RegressionStatsChart />
     </>
   ),
-  'infosys-profile': (
-    <>
-      <InfosysRevenueChart />
-      <InfosysRadarChart />
-      <InfosysValuationChart />
-      <ShareholderChart />
-    </>
-  ),
+};
+
+const infosysEquityProject = {
+  id: 'infosys-equity-research',
+  title: 'Infosys Equity Research & Valuation',
+  company: 'Infosys Ltd. (INFY)',
+  sector: 'IT Services & Consulting',
+  period: 'FY16–FY30F (10Y Historical + 5Y Forecast)',
+  overview:
+    'A comprehensive equity research report on Infosys Ltd. covering ratio analysis, financial forecasting, intrinsic growth, DCF valuation, comparable company analysis, football field synthesis, historical financials, and Altman Z-Score — built from a single Excel workbook with 8 interconnected sheets.',
+  kpis: [
+    { label: 'DCF Value/Share', value: '₹3,457', highlight: true },
+    { label: 'Current Price', value: '₹1,639' },
+    { label: 'WACC', value: '7.95%' },
+    { label: 'Latest Z-Score', value: '49.73', highlight: true },
+  ],
 };
 
 function KPICard({ kpi }: { kpi: { label: string; value: string; highlight?: boolean } }) {
@@ -87,8 +92,8 @@ function KPICard({ kpi }: { kpi: { label: string; value: string; highlight?: boo
 }
 
 function ProjectCard({ project, index, onSelect }: { project: Project; index: number; onSelect: () => void }) {
-  const icons = [DollarSign, Target, LineChartIcon, Building2];
-  const Icon = icons[index];
+  const icons = [TrendingUp, DollarSign, Target, LineChartIcon];
+  const Icon = icons[index % icons.length];
 
   return (
     <div
@@ -319,10 +324,18 @@ export default function Project() {
 
         {selected === null ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ProjectCard
+              key={infosysEquityProject.id}
+              project={infosysEquityProject as unknown as Project}
+              index={0}
+              onSelect={() => setSelected(-1)}
+            />
             {projectList.map((p, i) => (
-              <ProjectCard key={p.id} project={p} index={i} onSelect={() => setSelected(i)} />
+              <ProjectCard key={p.id} project={p} index={i + 1} onSelect={() => setSelected(i)} />
             ))}
           </div>
+        ) : selected === -1 ? (
+          <InfosysEquityDetail onBack={() => setSelected(null)} />
         ) : (
           <ProjectDetail project={projectList[selected]} onBack={() => setSelected(null)} />
         )}
