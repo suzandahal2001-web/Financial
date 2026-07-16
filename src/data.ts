@@ -167,7 +167,7 @@ export const languages = [
   { name: 'English', level: 'Professional' },
   { name: 'Hindi', level: 'Professional' },
   { name: 'Assamese', level: 'Native' },
-  { name: 'Nepali', level: 'Fluent' },
+  { name: 'Nepali', level: 'Native' },
 ];
 
 // ============================================================
