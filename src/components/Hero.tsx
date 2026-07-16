@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Linkedin, ArrowDown, TrendingUp, Download } from 'lucide-react';
+import { ArrowDown, TrendingUp, Download } from 'lucide-react';
 import { profile } from '../data';
 
 export default function Hero() {
@@ -22,11 +22,6 @@ export default function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center animate-fade-in-up">
-        {/* Photo placeholder */}
-        <div className="w-28 h-28 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-100 to-navy-100 border-2 border-blue-200 flex items-center justify-center shadow-lg">
-          <span className="text-4xl font-bold blue-gradient">SD</span>
-        </div>
-
         <div className="inline-flex items-center gap-2 mb-6">
           <TrendingUp size={16} className="text-blue-600" />
           <span className="text-blue-600 text-sm font-medium tracking-[0.25em] uppercase border border-blue-300 bg-blue-50 px-4 py-2 rounded-full">
@@ -41,30 +36,6 @@ export default function Hero() {
         <p className="text-xl md:text-2xl text-navy-500 font-light mb-8 max-w-3xl mx-auto leading-relaxed">
           {profile.tagline}
         </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-navy-600 mb-12">
-          <span className="flex items-center gap-2">
-            <MapPin size={16} className="text-blue-600" />
-            {profile.location}
-          </span>
-          <span className="flex items-center gap-2">
-            <Phone size={16} className="text-blue-600" />
-            {profile.phone}
-          </span>
-          <span className="flex items-center gap-2">
-            <Mail size={16} className="text-blue-600" />
-            {profile.email}
-          </span>
-          <a
-            href={profile.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-blue-600 transition-colors"
-          >
-            <Linkedin size={16} className="text-blue-600" />
-            LinkedIn
-          </a>
-        </div>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a

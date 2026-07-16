@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import { profile } from '../data';
 
 export default function Contact() {
@@ -68,47 +68,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Contact form */}
-        <form
-          className="glass-card p-8 text-left max-w-2xl mx-auto"
-          onSubmit={(e) => {
-            e.preventDefault();
-            window.location.href = `mailto:${profile.email}`;
-          }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-            <input
-              type="text"
-              placeholder="Your Name"
-              required
-              className="w-full px-4 py-3 rounded-lg border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:border-blue-500 transition-colors"
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              required
-              className="w-full px-4 py-3 rounded-lg border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:border-blue-500 transition-colors"
-            />
-          </div>
-          <input
-            type="text"
-            placeholder="Subject"
-            required
-            className="w-full px-4 py-3 rounded-lg border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:border-blue-500 transition-colors mb-4"
-          />
-          <textarea
-            placeholder="Your Message"
-            rows={5}
-            required
-            className="w-full px-4 py-3 rounded-lg border border-navy-200 bg-white text-navy-900 text-sm focus:outline-none focus:border-blue-500 transition-colors mb-6 resize-none"
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-3.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2"
-          >
-            <Send size={18} /> Send Message
-          </button>
-        </form>
       </div>
     </section>
   );
