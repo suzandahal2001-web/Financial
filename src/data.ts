@@ -166,7 +166,7 @@ export const certifications = [
 export const languages = [
   { name: 'English', level: 'Professional' },
   { name: 'Hindi', level: 'Professional' },
-  { name: 'Assamese', level: 'Native' },
+  { name: 'Assamese', level: 'Professional' },
   { name: 'Nepali', level: 'Native' },
 ];
 
